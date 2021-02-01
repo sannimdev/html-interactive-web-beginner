@@ -25,7 +25,11 @@
                 width: 100px;
                 height: 100px;
                 background: #fff000;
-                animation: sample-ani 2s cubic-bezier(0.13, 1.88, 0, 0.95) infinite;
+                animation: sample-ani 2s linear forwards;
+            }
+
+            .box:hover {
+                animation-play-state: paused;
             }
         </style>
     </head>

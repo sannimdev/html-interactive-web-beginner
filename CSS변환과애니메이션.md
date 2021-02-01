@@ -22,3 +22,17 @@
     transform: rotate(30deg);
 }
 ```
+
+### animation
+
+#### 속성 정리
+
+-   animation-name: 애니메이션 이름
+-   animation-duration: 지속 시간
+-   animation-iteration-count: 반복 횟수 (infinite/무한)
+-   animation-directive: alternative (왔다갔다)
+-   animation-play-state
+    -   running: 자동 재생
+    -   paused: 일시 정지
+-   animation-fill-mode
+    -   forwards: 애니메이션을 재생한 후 최종 시점에서 정지
