@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .world {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 60vw;
+                height: 60vh;
+                background: rgba(255, 255, 0, 0.2);
+                /*원근감(3D) 속성 적용하기 (해당 div를 3D 공간으로 적용하기)*/
+                /* perspective: 500px; */
+                /*
+                    눈에서의 거리. 하나의 시점을 기준으로 원근감을 보이게 하려면 카드 상위 div 속성에 지정
+                    수치가 작아질수록 눈 앞에 카드를 가져다 둔 것 같은 느낌이라 모양이 극적으로 변한다
+                */
+            }
+            .card {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100px;
+                height: 150px;
+                background: red;
+                margin: 1em;
+                border-radius: 0.5em;
+                font-size: 1.5em;
+                /* 
+                    모든 요소가 같은 각도로 보이게 하려면 해당 div 요소에 지정 
+                    동일한 원근감이 지정된다.
+                */
+                transform: perspective(500px) rotateY(45deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="world">
+            <div class="card">CARD</div>
+            <div class="card">CARD</div>
+            <div class="card">CARD</div>
+        </div>
+    </body>
+</html>
