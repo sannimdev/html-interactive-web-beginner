@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .container {
+                display: flex;
+                /* direction: 축의 방향을 의미한다. */
+                /* flex-direction: row; 기본값 */
+                /* flex-direction: column; */
+                /* 축이 바뀔 수 있으므로 left, right가 아니라 start, end로 명명한 것이다. */
+                /* justify-content: flex-start; */
+                /* justify-content: flex-end; */
+                /* justify-content: space-between; */
+                /* justify-content: space-around; */
+                /* align-items: stretch; 📢 기본값 */
+                /* justify-content: center;
+                align-items: center; */
+                height: 80vh;
+                background: gray;
+            }
+            .item {
+                /* grow는 각각 콘텐츠 폭을 제외한 여백을 1이라는 비율로 나눠갖겠다는 의미이다 */
+                /* flex-grow: 1; */
+                /* 원래의 콘텐츠가 점유하는 공간을 어떻게 차지할 것인가를 결정해 준다. (기본값: auto) */
+                /* 정확하게 의도한 비율대로 나눌 수 있음 */
+                /* flex-basis: 0; */
+                /* 축약형은 다음과 같다. */
+                flex: 1;
+                /* flex:1 => flex-grow: 1, flex-shrink: 1, flex-basis: 0% */
+                /* padding: 3rem; */
+                border: 3px solid black;
+                background: white;
+            }
+            .item:nth-child(1) {
+                flex-grow: 1;
+            }
+            .item:nth-child(2) {
+                flex-grow: 5;
+            }
+            .item:nth-child(3) {
+                flex-grow: 2;
+            }
+            .item:nth-child(4) {
+                flex-grow: 3;
+            }
+            .item:nth-child(5) {
+                flex-grow: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item">AAA</div>
+            <div class="item">B</div>
+            <div class="item">CCCCC</div>
+            <div class="item">DDD</div>
+            <div class="item">E</div>
+        </div>
+    </body>
+</html>
