@@ -71,10 +71,10 @@
                 background: rgba(0, 0, 255, 0.7);
             }
 
-            .door:hover .door-body {
+            .door-open .door-body {
                 transform: perspective(800px) rotateY(100deg);
             }
-            .door:hover .ilbuni {
+            .door-open .ilbuni {
                 transform: translate3d(0, 0, 0);
             }
         </style>
@@ -100,5 +100,21 @@
                 <div class="door-body"></div>
             </div>
         </div>
+
+        <script>
+            (function () {
+                const stageElem = document.querySelector('.stage');
+
+                function doorHandler(e) {
+                    const targetElem = e.target;
+
+                    if (targetElem.classList.contains('door-body')) {
+                        targetElem.parentNode.classList.add('door-open');
+                    }
+                }
+
+                stageElem.addEventListener('click', doorHandler, false /*false: 기본값*/);
+            })();
+        </script>
     </body>
 </html>
