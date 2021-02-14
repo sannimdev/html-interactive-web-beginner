@@ -107,23 +107,27 @@
                 // 현재 활성화된 아이템을 저장
                 let currentItem;
 
+                function activate(elem) {
+                    elem.parentNode.classList.add('door-open');
+                    currentItem = elem.parentNode;
+                }
+
+                function inactivate() {
+                    currentItem.classList.remove('door-open');
+                }
+
                 function doorHandler(e) {
                     const targetElem = e.target;
-                    /* 
-                        door-body를 눌렀을 때 부모 클래스인 door 클래스에 door-open 클래스가 지정돼야 한다.
-                    */
-                    console.log(targetElem);
                     /*
                         DOM에 직접 접근하는 것이 연산 중에 가장 느리다.
                     */
 
                     if (currentItem) {
-                        currentItem.classList.remove('door-open');
+                        inactivate();
                     }
 
                     if (targetElem.classList.contains('door-body')) {
-                        targetElem.parentNode.classList.add('door-open');
-                        currentItem = targetElem.parentNode;
+                        activate(targetElem);
                     }
                 }
 
