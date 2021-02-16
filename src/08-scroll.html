@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/reset.css" />
+        <style>
+            img {
+                max-width: 100%;
+            }
+            .content {
+                /* viewport height */
+                height: 1000vh;
+                padding: 20%;
+                background: yellowgreen;
+            }
+            .output {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                font-size: 2rem;
+                font-weight: 200;
+                color: #fff;
+                background: rgba(0, 0, 0, 0.4);
+            }
+            .ilbuni {
+                width: 100px;
+                margin: 20px auto;
+                transition: 1s;
+            }
+            .ilbuni.zoom {
+                transform: scale(2);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="output">output</div>
+        <div class="content">
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic
+                typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                with desktop publishing software like Aldus PageMaker including versions of Lorem
+                Ipsum.
+            </p>
+            <figure class="ilbuni">
+                <img src="images/ilbuni_0.png" alt="일분이" />
+            </figure>
+        </div>
+        <!-- 스크립트 -->
+        <script>
+            (function () {
+                const outputElem = document.querySelector('.output');
+                window.addEventListener(
+                    'scroll',
+                    function () {
+                        outputElem.innerHTML = window.pageYOffset;
+                    } /*, false (버블링 false)*/
+                );
+            })();
+        </script>
+    </body>
+</html>
