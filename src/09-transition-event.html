@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .ball {
+                width: 30px;
+                height: 30px;
+                /* margin: -15px; 마우스커서 위치 맞추기 */
+                border-radius: 50%;
+                background: blueviolet;
+                transition: 1s;
+            }
+            .ball.end {
+                background: chocolate;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ball"></div>
+        <script>
+            const ballElem = document.querySelector('.ball');
+            window.addEventListener('click', function (e) {
+                // console.log(e.clientX, e.clientY);
+                ballElem.classList.remove('end');
+                ballElem.style.transform = `translate(${e.clientX - 15}px, ${e.clientY - 15}px)`;
+            });
+
+            //transitionstart, transitionend
+            ballElem.addEventListener('transitionend', function (e) {
+                ballElem.classList.add('end');
+                console.log(e.elapsedTime);
+                console.log(e.propertyName);
+            });
+        </script>
+    </body>
+</html>
