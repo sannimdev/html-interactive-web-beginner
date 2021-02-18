@@ -57,12 +57,30 @@
         <script>
             (function () {
                 const outputElem = document.querySelector('.output');
-                window.addEventListener(
-                    'scroll',
-                    function () {
-                        outputElem.innerHTML = window.pageYOffset;
-                    } /*, false (버블링 false)*/
-                );
+                const ilbuniElem = document.querySelector('.ilbuni');
+
+                function showValue() {
+                    let posY = ilbuniElem.getBoundingClientRect().top;
+                    outputElem.innerHTML = posY;
+                    // outputElem.innerHTML = ilbuniElem.offsetTop; // 처음 위치만 가져옴
+                    /*
+                        🤷‍♂️
+                        x === left, y === top
+                        IE에서는 x, y 속성을 지원하지 않음
+                        따라서 세로의 길이인 top 속성을 참조하면 된다.
+                    */
+                    // console.log(ilbuniElem.getBoundingClientRect());
+
+                    // 윈도 높이의 1/5
+                    if (posY < window.innerHeight * 0.2) {
+                        ilbuniElem.classList.add('zoom');
+                    } else {
+                        ilbuniElem.classList.remove('zoom');
+                    }
+                }
+                showValue();
+
+                window.addEventListener('scroll', showValue);
             })();
         </script>
     </body>
