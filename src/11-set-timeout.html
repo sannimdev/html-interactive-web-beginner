@@ -9,16 +9,24 @@
     <body>
         <button class="btn">취소</button>
         <script>
+            let timeId;
+            let n = 0;
             function sample() {
-                console.log('sample!');
+                n++;
+                console.log('sample!', n);
+                if (n > 200) {
+                    return;
+                }
+                timeId = requestAnimationFrame(sample);
             }
 
-            let timeId = setTimeout(sample, 3000);
+            sample();
+            // requestAnimationFrame(sample);
             console.log(timeId);
 
             const btn = document.querySelector('.btn');
             btn.addEventListener('click', function () {
-                clearTimeout(timeId);
+                cancelAnimationFrame(timeId);
             });
         </script>
     </body>
