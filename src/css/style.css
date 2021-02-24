@@ -4,6 +4,8 @@ body {
     -webkit-overflow-scrolling: touch;
     color: #555;
     background: #fff000;
+
+    height: 500vw;
 }
 
 .world {
