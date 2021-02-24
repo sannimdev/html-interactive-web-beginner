@@ -40,10 +40,24 @@ body {
     background: rgba(255, 255, 255, 0.8);
 }
 
+.wall-front-a {
+    transform: translateZ(300vw);
+}
+.wall-front-b {
+    transform: translateZ(50vw);
+}
+.wall-front-c {
+    transform: translateZ(-200vw);
+}
+.wall-front-d {
+    transform: translateZ(-500vw);
+}
+
 .wall-left {
     position: absolute;
     left: -500vw;
     width: 1000vw;
+    background: #f8f8f8;
     transform: rotateY(90deg);
 }
 
@@ -51,6 +65,7 @@ body {
     position: absolute;
     left: -500vw;
     width: 1000vw;
+    background: #f8f8f8;
     transform: rotateY(90deg) translateZ(100vw);
 }
 
