@@ -1,6 +1,8 @@
 (function () {
+    const stageElem = document.querySelector('.stage');
     const houseElem = document.querySelector('.house');
     const barElem = document.querySelector('.progress-bar');
+    const mousePos = { x: 0, y: 0 };
     let maxScrollValue;
 
     function resizeHandler() {
@@ -10,6 +12,13 @@
     window.addEventListener('resize', function () {
         // 창의 크기가 바뀌면(특히 세로) 다시 스크롤의 영역의 크기를 계산해야 함.
         resizeHandler();
+    });
+
+    window.addEventListener('mousemove', function (e) {
+        mousePos.x = -1 + (e.clientX / window.innerWidth) * 2;
+        mousePos.y = 1 - (e.clientY / window.innerHeight) * 2;
+
+        stageElem.style.transform = `rotateX(${mousePos.y * 5}deg) rotateY(${mousePos.x * 5}deg)`;
     });
 
     window.addEventListener(
@@ -30,9 +39,9 @@
             const scrollPer = pageYOffset / maxScrollValue;
             const zMove = scrollPer * 980 - 490;
             houseElem.style.transform = `translateZ(${zMove}vw)`;
-            
+
             // progress-bar 제어하기
-            barElem.style.width = `${scrollPer*100}%`;
+            barElem.style.width = `${scrollPer * 100}%`;
         },
         false
     );
