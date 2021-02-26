@@ -1,5 +1,6 @@
 (function () {
     const houseElem = document.querySelector('.house');
+    const barElem = document.querySelector('.progress-bar');
     let maxScrollValue;
 
     function resizeHandler() {
@@ -26,8 +27,12 @@
             */
 
             // console.log(pageYOffset / maxScrollValue);
-            const zMove = (pageYOffset / maxScrollValue) * 980 - 490;
+            const scrollPer = pageYOffset / maxScrollValue;
+            const zMove = scrollPer * 980 - 490;
             houseElem.style.transform = `translateZ(${zMove}vw)`;
+            
+            // progress-bar 제어하기
+            barElem.style.width = `${scrollPer*100}%`;
         },
         false
     );
