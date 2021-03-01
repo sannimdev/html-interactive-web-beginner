@@ -14,6 +14,12 @@
         resizeHandler();
     });
 
+    window.addEventListener('click', function (e) {
+        new Character({
+            xPos: (e.clientX / window.innerWidth) * 100,
+        });
+    });
+
     window.addEventListener('mousemove', function (e) {
         mousePos.x = -1 + (e.clientX / window.innerWidth) * 2;
         mousePos.y = 1 - (e.clientY / window.innerHeight) * 2;
@@ -46,6 +52,4 @@
         false
     );
     resizeHandler();
-
-    new Character();
 })();
