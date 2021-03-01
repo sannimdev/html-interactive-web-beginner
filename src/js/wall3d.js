@@ -46,4 +46,6 @@
         false
     );
     resizeHandler();
+
+    new Character();
 })();
