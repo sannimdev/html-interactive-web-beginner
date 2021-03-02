@@ -37,8 +37,15 @@ function Character(info) {
     // 캐릭터 위치 조정하기
     // console.log(info.xPos); // xPos가 넘어온다.
     this.mainElem.style.left = `${info.xPos}%`;
+    this.init(); // 초기화함수 실행하기
 }
 
 Character.prototype = {
     constructor: Character,
+    init: function () {
+        window.addEventListener('scroll', () => {
+            //😁 this가 전역객체를 가리키면 안 된다는 것을 유의하자.
+            this.mainElem.classList.add('running');
+        });
+    },
 };
