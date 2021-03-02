@@ -13,12 +13,12 @@ function Character(info) {
         <div class="character-face character-torso-face face-back"></div>
     </div>
 
-    <div class="character-face-con character-arm-right">
+    <div class="character-face-con character-arm-right character-arm">
         <div class="character-face character-arm-face face-front"></div>
         <div class="character-face character-arm-face face-back"></div>
     </div>
 
-    <div class="character-face-con character-arm-left">
+    <div class="character-face-con character-arm-left character-arm">
         <div class="character-face character-arm-face face-front"></div>
         <div class="character-face character-arm-face face-back"></div>
     </div>
@@ -38,3 +38,7 @@ function Character(info) {
     // console.log(info.xPos); // xPos가 넘어온다.
     this.mainElem.style.left = `${info.xPos}%`;
 }
+
+Character.prototype = {
+    constructor: Character,
+};
