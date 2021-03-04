@@ -100,7 +100,7 @@ Character.prototype = {
         window.addEventListener('keyup', (e) => {
             this.mainElem.classList.remove('running');
             cancelAnimationFrame(this.rafId);
-            // this.runningState = false;
+            this.runningState = false;
         });
     },
     run: function () {
@@ -108,6 +108,13 @@ Character.prototype = {
             this.xPos -= this.speed;
         } else if (this.direction === 'right') {
             this.xPos += this.speed;
+        }
+
+        // 캐릭터 범위 제한하기
+        if (this.xPos < 2) {
+            this.xPos = 2;
+        } else if (this.xPos > 88) {
+            this.xPos = 88;
         }
 
         this.mainElem.style.left = `${this.xPos}%`;
