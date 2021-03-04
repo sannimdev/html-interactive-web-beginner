@@ -1,6 +1,7 @@
 (function () {
     const stageElem = document.querySelector('.stage');
     const houseElem = document.querySelector('.house');
+    const selectCharacterElem = document.querySelector('.select-character');
     const barElem = document.querySelector('.progress-bar');
     const mousePos = { x: 0, y: 0 };
     let maxScrollValue;
@@ -14,7 +15,7 @@
         resizeHandler();
     });
 
-    window.addEventListener('click', function (e) {
+    stageElem.addEventListener('click', function (e) {
         new Character({
             xPos: (e.clientX / window.innerWidth) * 100,
             speed: Math.random() * 0.354 + 0.2,
@@ -52,5 +53,11 @@
         },
         false
     );
+
+    selectCharacterElem.addEventListener('click', function (e) {
+        const value = e.target.getAttribute('data-char');
+        document.body.setAttribute('data-char', value);
+    });
+
     resizeHandler();
 })();
