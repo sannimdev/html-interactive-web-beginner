@@ -42,7 +42,8 @@ function Character(info) {
     // 바로 전 스크롤 위치
     this.lastScrollTop = 0;
     this.xPos = info.xPos;
-    this.speed = 0.3;
+    this.speed = info.speed;
+    console.log(this.speed);
     this.direction;
     // 좌우 이동 여부
     this.runningState = false;

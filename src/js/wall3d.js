@@ -17,6 +17,7 @@
     window.addEventListener('click', function (e) {
         new Character({
             xPos: (e.clientX / window.innerWidth) * 100,
+            speed: Math.random() * 0.354 + 0.2,
         });
     });
 
